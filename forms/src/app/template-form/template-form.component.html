@@ -1,0 +1,23 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" 
+        placeholder="nome" 
+         name="nome" 
+         [(ngModel)]="usuario.name"
+         required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" 
+        class="form-control" 
+        id="email" 
+        placeholder="email" 
+        name="email" 
+        [(ngModel)]="usuario.email"
+        required email>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary mt-2">Login</button>
+    </div>
+</form>
