@@ -1,23 +1,99 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <div class="form-group">
-        <label for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome" 
-        placeholder="nome" 
-         name="nome" 
-         [(ngModel)]="usuario.name"
-         required>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="nome" class="m-1">NOME</label>
+            <input type="text" class="form-control" id="nome" placeholder="nome" name="nome" 
+            [(ngModel)]="usuario.name"
+            [ngClass]="aplicaCsserror(name)"
+            required #name="ngModel">
+            <p *ngIf="!name.value">Campo obrogatorio</p>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" 
-        class="form-control" 
-        id="email" 
-        placeholder="email" 
-        name="email" 
-        [(ngModel)]="usuario.email"
-        required email>
+<div class="row">
+    <div class="col-md-12">
+        <label for="email" class="m-1">EMAIL</label>
+        <input type="email" class="form-control" id="email" placeholder="email" name="email"
+        [(ngModel)]="usuario.email" required email #email="ngModel"
+        [ngClass]="aplicaCsserror(email)">
+        <p *ngIf="!email.value">Campo obrogatorio</p>
     </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <label for="cep" class="m-1">CEP</label>
+        <input type="text" class="form-control" id="cep" placeholder="cep" name="cep"
+        [(ngModel)]="usuario.cep" required cep #cep="ngModel"
+        [ngClass]="aplicaCsserror(cep)"
+        (blur)="buscarCep(cep.value)"
+        >
+        <p *ngIf="!cep.value">Campo obrogatorio</p>
+    </div>
+    <div class="col-md-3">
+        <label for="numero" class="m-1">NUMERO</label>
+        <input type="text" class="form-control" id="cep" placeholder="numero" name="numero"
+        [(ngModel)]="usuario.numero" required numero #numero="ngModel"
+        [ngClass]="aplicaCsserror(numero)">
+        <p *ngIf="!numero.value">Campo obrogatorio</p>
+    </div>
+
+    <div class="col-md-6">
+        <label for="complemento" class="m-1">COMPLEMENTO</label>
+        <input type="text" class="form-control" id="cep" placeholder="complemento" 
+        name="complemento"
+        [(ngModel)]="usuario.complemento" 
+        complemento #complemento="ngModel">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <label for="nome" class="m-1">RUA</label>
+        <input type="text" class="form-control" id="rua"
+         placeholder="rua" name="rua" [(ngModel)]="usuario.rua"
+        required #rua="ngModel"
+        [ngClass]="aplicaCsserror(rua)"
+        >
+        <p *ngIf="!rua.value">Campo obrogatorio</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <label for="bairro" class="m-1">BAIRRO</label>
+        <input type="text" class="form-control" 
+        id="bairro" placeholder="bairro" 
+        name="bairro" [(ngModel)]="usuario.bairro"
+        required #bairro="ngModel"
+        [ngClass]="aplicaCsserror(bairro)"
+        >
+        <p *ngIf="!bairro.value">Campo obrogatorio</p>
+    </div>
+
+    <div class="col-md-4">
+        <label for="cidade" class="m-1">CIDADE</label>
+        <input type="text" class="form-control" 
+        id="cidade" placeholder="cidade" 
+        name="cidade" [(ngModel)]="usuario.cidade"
+        required #cidade="ngModel"
+        [ngClass]="aplicaCsserror(cidade)"
+        >
+        <p *ngIf="!cidade.value">Campo obrogatorio</p>
+    </div>
+
+    <div class="col-md-3">
+        <label for="estado" class="m-1">ESTADO</label>
+        <input type="text" class="form-control"
+         id="estado" placeholder="estado"
+          name="estado" [(ngModel)]="usuario.estado"
+        required #estado="ngModel"
+        [ngClass]="aplicaCsserror(estado)"
+        >
+        <p *ngIf="!estado.value">Campo obrogatorio</p>
+    </div>
+</div>
+        
     <div class="form-group">
-        <button type="submit" class="btn btn-primary mt-2">Login</button>
+        <button type="submit" class="btn btn-primary mt-2" [disabled]="!f.valid">Login</button>
     </div>
 </form>
+
