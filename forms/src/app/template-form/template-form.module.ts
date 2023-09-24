@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataFormComponent } from '../data-form/data-form.component';
 import { FormsModule } from '@angular/forms';
-
-
-
+import { TemplateFormComponent } from './template-form.component';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
   declarations: [
-    TemplateFormModule,
-    DataFormComponent,
-    FormsModule
+    TemplateFormComponent,
   ],
   imports: [
-    CommonModule
+    FormsModule,
+    CommonModule,
+    AlertModule
   ]
 })
 export class TemplateFormModule { }

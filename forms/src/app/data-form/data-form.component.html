@@ -1,1 +1,85 @@
-<p>data-form works!</p>
+<alert type="info">
+    <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+  </alert>
+  
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="row">
+        <div class="col-md-12">
+            <label for="nome" class="m-1">NOME</label>
+            <input type="text" class="form-control" id="nome" placeholder="nome" formControlName="nome">
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-12">
+        <label for="email" class="m-1">EMAIL</label>
+        <input type="email" class="form-control" id="email" placeholder="email" formControlName="email">
+       
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <label for="cep" class="m-1">CEP</label>
+        <input type="text" class="form-control" id="cep" placeholder="cep" formControlName="cep"
+        (blur)="buscarCep()"
+        >
+       
+    </div>
+    <div class="col-md-3">
+        <label for="numero" class="m-1">NUMERO</label>
+        <input type="text" class="form-control" id="cep" placeholder="numero" formControlName="numero">
+       
+    </div>
+
+    <div class="col-md-6">
+        <label for="complemento" class="m-1">COMPLEMENTO</label>
+        <input type="text" class="form-control" id="cep" placeholder="complemento" formControlName="complemento">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <label for="nome" class="m-1">RUA</label>
+        <input type="text" class="form-control" id="rua"
+         placeholder="rua" formControlName="rua">
+      
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <label for="bairro" class="m-1">BAIRRO</label>
+        <input type="text" class="form-control" 
+        id="bairro" placeholder="bairro" 
+        formControlName="bairro"
+        >
+      
+    </div>
+
+    <div class="col-md-4">
+        <label for="cidade" class="m-1">CIDADE</label>
+        <input type="text" class="form-control" 
+        id="cidade" placeholder="cidade" 
+        formControlName="cidade"
+        >
+       
+    </div>
+
+    <div class="col-md-3">
+        <label for="estado" class="m-1">ESTADO</label>
+        <input type="text" class="form-control"
+         id="estado" placeholder="estado"
+         formControlName="estado"
+        >
+    </div>
+</div>
+        
+    <div class="form-group">
+        <button type="submit" 
+        class="btn btn-primary m-2"
+        [disabled]="!form.valid"
+        >Save</button>
+        <button type="reset" 
+        class="btn btn-secondary m-2">Cancelar</button>
+    </div>
+</form>
+

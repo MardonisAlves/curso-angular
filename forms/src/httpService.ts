@@ -17,7 +17,7 @@ export class HttpService {
    return this.http.get<Cep>(`${this.url}/${cep}/json`, httpOptions).pipe()
   }
 
-  saveEndereco(endereco:any){
+saveEndereco(endereco:any){
     return this.http.post('http://localhost:3000/endereco', endereco).pipe()
   }
 }
