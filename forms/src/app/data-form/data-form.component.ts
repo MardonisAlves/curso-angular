@@ -10,6 +10,7 @@ import { HttpService } from 'src/httpService';
 export class DataFormComponent implements OnInit{
  
   form!: FormGroup;
+  type!: string;
 
   constructor(private formBuilder:FormBuilder, private httpService: HttpService ){}
   

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataFormComponent } from './data-form.component';
-
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 
 @NgModule({
@@ -14,7 +14,8 @@ import { DataFormComponent } from './data-form.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AlertModule.forRoot()
   ]
 })
 export class DataFormModule { }
