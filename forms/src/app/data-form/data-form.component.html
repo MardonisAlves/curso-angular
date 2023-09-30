@@ -75,6 +75,14 @@
         <div class="col-md-12 mt-4">
             <p-multiSelect [options]="listSkil" formControlName="selectedlistSkil" optionLabel="name" placeholder="software skils"></p-multiSelect>
         </div>
+        <div class="col-md-12">
+            <div class="flex align-items-center">
+                <p-radioButton name="newletter" value="sim" formControlName="newletter" inputId="newletter1"></p-radioButton>
+                <label for="newletter1" class="ml-2">sim</label>
+                <p-radioButton name="newletter" value="nao" formControlName="newletter" inputId="newletter2"></p-radioButton>
+                <label for="newletter2" class="ml-2">não</label>
+            </div>
+        </div>
        </div> 
     <div class="form-group">
         <button type="submit" 

@@ -17,6 +17,7 @@ export class DataFormComponent implements OnInit{
   listUf: Uf[] = [{Nome:'Lista de estados', Sigla:''}]
   listSkil: any[] = [];
   selectedlistSkil: any[] = [{name:'software skils', id:''}]
+  newletter!: string
   constructor(private formBuilder:FormBuilder, private httpService: HttpService ){}
   
   ngOnInit(){
@@ -56,7 +57,9 @@ export class DataFormComponent implements OnInit{
       estado:[null, Validators.required],
       cidade:[null, Validators.required],
       numero:[null, Validators.required],
-      complemento:[null]
+      complemento:[null],
+      newletter:[''],
+      selectedlistSkil:['']
     })
 
    

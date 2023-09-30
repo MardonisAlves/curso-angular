@@ -6,7 +6,7 @@ import { DataFormComponent } from './data-form.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
-
+import { RadioButtonModule } from 'primeng/radiobutton';
 @NgModule({
   declarations: [
     DataFormComponent
@@ -18,7 +18,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
     HttpClientModule,
     AlertModule.forRoot(),
     DropdownModule,
-    MultiSelectModule
+    MultiSelectModule,
+    RadioButtonModule
   ]
 })
 export class DataFormModule { }
