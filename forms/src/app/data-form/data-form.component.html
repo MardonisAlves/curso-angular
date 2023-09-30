@@ -39,7 +39,7 @@
 <div class="row">
     <div class="col-md-12">
         <label for="nome" class="m-1">RUA</label>
-        <input type="text" class="form-control" id="rua"
+        <input type="text" class="form-control w-full" id="rua"
          placeholder="rua" formControlName="rua">
       
     </div>
@@ -48,28 +48,34 @@
 <div class="row">
     <div class="col-md-5">
         <label for="bairro" class="m-1">BAIRRO</label>
-        <input type="text" class="form-control" 
+        <input type="text" class="form-control w-full" 
         id="bairro" placeholder="bairro" 
         formControlName="bairro"
         >
-      
     </div>
-
-    <div class="col-md-4">
+    <div class="col-md-5">
         <label for="cidade" class="m-1">CIDADE</label>
-        <input type="text" class="form-control" 
+        <input type="text" class="form-control w-full" 
         id="cidade" placeholder="cidade" 
         formControlName="cidade"
         >
-       
     </div>
 
-    <div class="col-md-3">
-        <label for="estado" class="m-1">ESTADO</label>
-        <p-dropdown formControlName="estado" [options]="listUf" optionLabel="Nome" class="w-full"></p-dropdown>
+    <div class="col-md-2 mt-4 w-full">
+        <p-dropdown 
+        formControlName="estado" 
+        [options]="listUf" 
+        optionLabel="Nome" 
+        class=""
+         >
+    </p-dropdown>
     </div>
 </div>
-        
+       <div class="row">
+        <div class="col-md-12 mt-4">
+            <p-multiSelect [options]="listSkil" formControlName="selectedlistSkil" optionLabel="name" placeholder="software skils"></p-multiSelect>
+        </div>
+       </div> 
     <div class="form-group">
         <button type="submit" 
         class="btn btn-primary m-2"

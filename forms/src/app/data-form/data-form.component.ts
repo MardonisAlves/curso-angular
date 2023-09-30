@@ -14,13 +14,32 @@ export class DataFormComponent implements OnInit{
   form!: FormGroup;
   type!: string;
   showAlert: boolean = false;
-  listUf: Uf[] = []
-
+  listUf: Uf[] = [{Nome:'Lista de estados', Sigla:''}]
+  listSkil: any[] = [];
+  selectedlistSkil: any[] = [{name:'software skils', id:''}]
   constructor(private formBuilder:FormBuilder, private httpService: HttpService ){}
   
   ngOnInit(){
     this.getListUf()
     this.type = "info"
+
+    this.listSkil=[{
+      id:1,
+      name:'Nodejs',
+    },
+    {
+      id:2,
+      name:'Angular',
+    },
+    {
+      id:3,
+      name:'Sql server',
+    },
+    {
+      id:4,
+      name:'Ionic',
+    }
+  ]
     /* 
     this.form = new FormGroup({
       nome: new FormGroup(null),
@@ -82,9 +101,12 @@ export class DataFormComponent implements OnInit{
   getListUf(){
     this.httpService.listUf().subscribe({
       next: (res:any) => {
-        console.log(res);
-        
-        this.listUf = res
+        res.map((item:any) => {
+          this.listUf.push({
+            Sigla: item.Sigla,
+            Nome: item.Nome
+          })   
+        })
       },
       complete: () => {},
       error: () => {}
