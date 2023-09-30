@@ -3,7 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cep } from './model/cep';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class HttpService {
    url = 'https://viacep.com.br/ws'
   constructor(private http: HttpClient) { }
@@ -20,4 +22,7 @@ export class HttpService {
 saveEndereco(endereco:any){
     return this.http.post('http://localhost:3000/endereco', endereco).pipe()
   }
+listUf(){
+  return this.http.get('http://localhost:3000/estados').pipe()
+}
 }

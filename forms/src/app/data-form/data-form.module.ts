@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataFormComponent } from './data-form.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
-
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    DropdownModule
   ]
 })
 export class DataFormModule { }

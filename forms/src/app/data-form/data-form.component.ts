@@ -1,6 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,  FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/httpService';
+import { Uf } from 'src/model/uf';
 
 @Component({
   selector: 'app-data-form',
@@ -11,11 +13,14 @@ export class DataFormComponent implements OnInit{
  
   form!: FormGroup;
   type!: string;
+  showAlert: boolean = false;
+  listUf: Uf[] = []
 
   constructor(private formBuilder:FormBuilder, private httpService: HttpService ){}
   
   ngOnInit(){
-    
+    this.getListUf()
+    this.type = "info"
     /* 
     this.form = new FormGroup({
       nome: new FormGroup(null),
@@ -34,16 +39,22 @@ export class DataFormComponent implements OnInit{
       numero:[null, Validators.required],
       complemento:[null]
     })
+
+   
   }
 
   buscarCep(){
     const cep = this.form.controls['cep'].value
     this.httpService.getCep(cep).subscribe({
-      next: (res) => {
+      next: (res:any) => {
+    this.listUf = []
       this.form.controls['rua'].setValue(res.logradouro)
       this.form.controls['bairro'].setValue(res.bairro)
       this.form.controls['cidade'].setValue(res.localidade)
-      this.form.controls['estado'].setValue(res.uf)
+      this.listUf.push({
+          Sigla: res.uf,
+          Nome: res.uf
+      })
       },
       error: () => {},
       complete: () => {}
@@ -51,16 +62,33 @@ export class DataFormComponent implements OnInit{
   }
 
   onSubmit(){
-  
+  Object.keys(this.form.controls).forEach(campo => {
+    console.log(campo);
+    
+  })
   return this.httpService.saveEndereco(this.form.value).subscribe({
-    next: (res) => {
+    next: (res:any) => {
+      this.type= "info";
+      this.showAlert= true
       this.form.reset()
     },
-    error: (e) => {
+    error: (e:any) => {
       alert('error')
     },
     complete: () => console.log('completed')
   })
+  }
+
+  getListUf(){
+    this.httpService.listUf().subscribe({
+      next: (res:any) => {
+        console.log(res);
+        
+        this.listUf = res
+      },
+      complete: () => {},
+      error: () => {}
+    })
   }
 }
 

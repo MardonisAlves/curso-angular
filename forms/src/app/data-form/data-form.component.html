@@ -1,4 +1,4 @@
-<alert type="info">
+<alert type="info" *ngIf="showAlert">
     <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
   </alert>
   
@@ -66,10 +66,7 @@
 
     <div class="col-md-3">
         <label for="estado" class="m-1">ESTADO</label>
-        <input type="text" class="form-control"
-         id="estado" placeholder="estado"
-         formControlName="estado"
-        >
+        <p-dropdown formControlName="estado" [options]="listUf" optionLabel="Nome" class="w-full"></p-dropdown>
     </div>
 </div>
         
