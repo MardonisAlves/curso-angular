@@ -32,12 +32,22 @@ export class DataFormComponent implements OnInit{
       estado:[null, Validators.required],
       cidade:[null, Validators.required],
       numero:[null, Validators.required],
-      complemento:[null, Validators.required]
+      complemento:[null]
     })
   }
 
   buscarCep(){
-    console.log('res');
+    const cep = this.form.controls['cep'].value
+    this.httpService.getCep(cep).subscribe({
+      next: (res) => {
+      this.form.controls['rua'].setValue(res.logradouro)
+      this.form.controls['bairro'].setValue(res.bairro)
+      this.form.controls['cidade'].setValue(res.localidade)
+      this.form.controls['estado'].setValue(res.uf)
+      },
+      error: () => {},
+      complete: () => {}
+    })
   }
 
   onSubmit(){
