@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'dataforme', component: DataFormComponent },
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
